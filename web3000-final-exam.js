@@ -55,9 +55,39 @@ twoNumber([2, 7, 11, 15], 14)
 
 
 Challenge 3
-Given two (dic¬tio¬nary) words as Strings, deter¬mine if the following applies. Verify if the let-ters in one word can be remapped to get the sec¬ond word. Remap¬ping a let¬ter means replac¬ing all occur¬rences of it with another let¬ter while the order¬ing of the let¬ters remains unchanged. No two let¬ters may map to the same let¬ter, but a let¬ter may map to itself. if the let¬ters in one word can be remapped to get the sec¬ond word. Remap¬ping a let¬ter means replac¬ing all occur-rences of it with another let¬ter while the order¬ing of the let¬ters remains unchanged. No two let-ters may map to the same let¬ter, but a let¬ter may map to itself.
+Given two (dic¬tio¬nary) words as Strings, deter¬mine if the following applies.
+Verify if the let-ters in one word can be remapped to get the sec¬ond word.
+Remap¬ping a let¬ter means replac¬ing all occur¬rences of it with another let¬ter while the order¬ing of the let¬ters remains
+unchanged. No two let¬ters may map to the same let¬ter, but a let¬ter may map to itself.
+ if the let¬ters in one word can be remapped to get the sec¬ond word.
+  Remap¬ping a let¬ter means replac¬ing all occur-rences of it with another let¬ter while the order¬ing of the
+  let¬ters remains unchanged. No two let-ters may map to the same let¬ter, but a let¬ter may map to itself.
 Examples:
 "foo", "app"; returns true
 "bar", "foo"; returns false
 "turtle", "tletur"; returns true
 "ab", "ca"; returns true
+function mixstring(str1, str2){
+        if(str1.length !== str2.length){
+           return false;
+         }
+        var map1={};
+        var map2={};
+
+       for (var i=0; i< str1.length;i++) {
+            if (typeof map1[str1[i]] == "undefined" && typeof map2[str2[i]] == "undefined"){
+                map1[str1[i]] = str2[i];
+                map2[str2[i]] = str1[i];
+            }
+            else{
+                if(map1[str1[i]] !== str2[i] && map2[str2[i]] !== str1[i]){
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+     mixstring("foo", "app")
+     mixstring("bar", "foo")
+     mixstring("turtle", "tletur")
+     mixstring("ab", "ca")
