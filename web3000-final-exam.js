@@ -43,13 +43,13 @@ function twoNumber(arr, target){
   var second;
   for(let i=0;i<arr.length;i++){
    second = target - arr[i];
-    if(arr.includes(second)==true){
+    if(arr.includes(second)==true && arr.indexOf(second)!=i){
       return [i, arr.indexOf(second)]
     }
  }
 return "Element not found"
 }
-twoNumber([2, 7, 11, 15], 9)
+twoNumber([2, 7, 11, 15], 14)
 
 
 
